@@ -2,3 +2,122 @@ Why react router ?
 => To Change components with out refreshing the pages
 
 api : 7e4e45473bc74f9293ec48a150d508b1
+
+
+
+articles: [
+  {
+    "author": "NDTV Sports Desk"
+"content": "IPL 2022, GT vs RCB Live Updates: Chasing a target of 171, Gujarat Titans two wickets down against Royal Challengers Bangalore in Match 43 at the Brabourne Stadium in Mumbai. Shubman Gill and Wriddhi… [+897 chars]"
+"description": "IPL 2022, GT vs RCB Live Updates: Chasing a target of 171, Gujarat Titans two wickets down against Royal Challengers Bangalore in Match 43 at the Brabourne Stadium in Mumbai."
+"publishedAt": "2022-04-30T12:27:40Z"
+"source": {id: null, name: 'NDTV News'}
+"title": "IPL 2022, GT vs RCB Live Score: Shubman Gill, Wriddhiman Saha Give GT Strong Start In Chase Of 171 vs RCB - NDTV Sports"
+"url": "https://sports.ndtv.com/ipl-2022/ipl-2022-gt-vs-rcb-live-score-updates-gujarat-titans-vs-royal-challengers-bangalore-live-score-2934255"
+"urlToImage": "https://c.ndtvimg.com/2022-04/25kopkng_rcb-ipl-bcci_625x300_30_April_22.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=675"
+  },{
+    author: "The Tribune India"
+content: "Tribune News Service\r\nChandigarh, April 30\r\nWith improvement in the situation, mobile internet services and SMS services were restored in Patiala district on Saturday after remaining suspended from 9… [+1157 chars]"
+description: "With improvement in the situation, mobile internet services and SMS services were restored in Patiala district on Saturday after remaining suspended from 9.30 am to 4 pm in the wake of a clash between two groups on Friday."
+publishedAt: "2022-04-30T11:25:00Z"
+source: {id: null, name: 'The Tribune India'}
+title: "As situation improves, mobile internet services resume in Patiala at 4 pm instead of 6 pm - The Tribune India"
+url: "https://www.tribuneindia.com/news/punjab/mobile-internet-services-suspended-in-patiala-district-till-6-pm-on-saturday-390632"
+urlToImage: "https://englishtribuneimages.blob.core.windows.net/gallary-content/2022/4/2022_4$largeimg_829170412.jpg"
+  }
+]
+
+[[Prototype]]: Object
+1:
+
+[[Prototype]]: Object
+2:
+author: "HT News Desk"
+content: "Former Pakistan prime minister Imran Khan has spoken about his wives Jemima Goldsmith and Reham Khan without naming them, as he addressed a convention of PTI workers on Friday in Lahore. He said a ch… [+1769 chars]"
+description: "Imran Khan said the Sharif camp will attempt character-assassination like they campaigned against Jemima even though she had embraced Islam and came to Pakistan.  | World News"
+publishedAt: "2022-04-30T11:09:59Z"
+source: {id: null, name: 'Hindustan Times'}
+title: "Imran Khan hints his 2nd wife was paid by enemies; Reham Khan replies - Hindustan Times"
+url: "https://www.hindustantimes.com/world-news/imran-khan-hints-his-2nd-wife-was-paid-by-enemies-to-marry-him-reham-khan-replies-101651316246970.html"
+urlToImage: "https://images.hindustantimes.com/img/2022/04/30/1600x900/imran_khan_wives_1651316583521_1651316593550.jpg"
+[[Prototype]]: Object
+3:
+author: "Amritanshu Mukherjee"
+content: "If you had to buy a good camera phone, the obvious choices that come forward are the Apple iPhone 13, and the Samsung Galaxy S22 Ultra. However, you will be surprised to know that technically, these … [+2252 chars]"
+description: "The best camera phones tested by critics at DxOMark are not the iPhone 13 or the Samsung Galaxy S22 Ultra. The winners are surprising."
+publishedAt: "2022-04-30T11:02:05Z"
+source: {id: null, name: 'Hindustan Times'}
+title: "Best camera phones? They are NOT the iPhone 13 Pro, Galaxy S22! Surprised? - HT Tech"
+url: "https://tech.hindustantimes.com/mobile/news/best-camera-phones-they-are-not-the-iphone-13-pro-galaxy-s22-surprised-71651315722098.html"
+urlToImage: "https://images.hindustantimes.com/tech/img/2022/04/30/1600x900/IMG_4566_1621081496743_1651316180866.jpg"
+[[Prototype]]: Object
+4:
+author: "Express News Service"
+content: "Days after it questioned Chinese mobile manufacturer Xiaomi’s global vice-president for alleged forex violations by the company, the Enforcement Directorate (ED) on Saturday seized Rs 5,551.27 crore … [+2040 chars]"
+description: "Earlier this month, ED had questioned Manu Kumar Jain, Xiaomi’s global vice-president, in connection with alleged illegal remittances made by the company."
+publishedAt: "2022-04-30T10:53:34Z"
+source: {id: null, name: 'The Indian Express'}
+title: "ED seizes Rs 5,551 crore of Xiaomi India under FEMA law - The Indian Express"
+url: "https://indianexpress.com/article/business/companies/xiaomi-india-ed-case-foreign-remittance-7895013/"
+urlToImage: "https://images.indianexpress.com/2021/08/Xiaomi-logo.jpg"
+[[Prototype]]: Object
+5:
+author: null
+content: null
+description: null
+publishedAt: "2022-04-30T10:23:26Z"
+source: {id: 'google-news', name: 'Google News'}
+title: "Apple explains why it is removing outdated apps - Kalinga TV"
+url: "https://news.google.com/__i/rss/rd/articles/CBMiUWh0dHBzOi8va2FsaW5nYXR2LmNvbS90ZWNobm9sb2d5L2FwcGxlLWV4cGxhaW5zLXdoeS1pdC1pcy1yZW1vdmluZy1vdXRkYXRlZC1hcHBzL9IBAA?oc=5"
+urlToImage: null
+[[Prototype]]: Object
+6:
+author: "Entertainment Desk"
+content: "90s pop sensation Tarsame Singh Saini, popularly known as Taz from Stereo Nation has passed away. As per reports, the singer suffered a liver failure following which, he slipped into a coma. He was 5… [+2420 chars]"
+description: "Taz was the lead singer of the pop band Stereo Nation which was formed in 1996 and was called the pioneer of cross-cultural Asian fusion music."
+publishedAt: "2022-04-30T10:14:17Z"
+source: {id: null, name: 'The Indian Express'}
+title: "Singer Tarsame Singh Saini aka Taz of Stereo Nation passes away - The Indian Express"
+url: "https://indianexpress.com/article/entertainment/music/taz-stereo-nation-passes-away-tarsame-singh-saini-7894620/"
+urlToImage: "https://images.indianexpress.com/2022/04/taz-singer.jpg"
+[[Prototype]]: Object
+7:
+author: null
+content: "The Queen of Spain put traditional sausages and a postcard wishing Ukraine victory over Russia in a shipment of grenades from her country. The gift was sent to Ukraine to give a boost to the fighting… [+1832 chars]"
+description: "The Queen of Spain put traditional sausages and a postcard wishing Ukraine victory over Russia in a shipment of grenades from her country. The gift was sent to Ukraine to give a boost to the fighting power of its army."
+publishedAt: "2022-04-30T10:07:36Z"
+source: {id: null, name: 'NDTV News'}
+title: "Spain's Queen Gifts Grenade Shipment To Ukraine, Adds Victory Message - NDTV"
+url: "https://www.ndtv.com/world-news/spains-queen-gifts-grenade-shipment-to-ukraine-adds-victory-message-2934439"
+urlToImage: "https://c.ndtvimg.com/2022-04/4geldja8_queen-of-spain-650_625x300_30_April_22.jpg"
+[[Prototype]]: Object
+8:
+author: "Moneycontrol News"
+content: "Private sector lender YES Bank put up a strong show in the fourth quarter (January-March) of the fiscal year 2021-22 . The bank reported a profit of Rs 367 crore against a loss of Rs 3,788 crore regi… [+3200 chars]"
+description: "The asset quality has seen good improvement, with gross non-performing assets (NPA) coming in at 13.9 percent, down from 14.7 percent in the previous quarter, and net NPA declined to 4.5 percent from 5.3 percent in the previous quarter, the bank said."
+publishedAt: "2022-04-30T09:58:24Z"
+source: {id: null, name: 'Moneycontrol'}
+title: "YES Bank Q4 Result | Lender posts profit of Rs 367 crore as provisions decline 95% - Moneycontrol"
+url: "https://www.moneycontrol.com/news/business/earnings/yes-bank-q4-result-lender-posts-profit-of-rs-367-crore-as-provisions-decline-95-8435421.html"
+urlToImage: "https://images.moneycontrol.com/static-mcnews/2020/08/Prashant-Kumar-Yes-Bank-770x433.jpg"
+[[Prototype]]: Object
+9:
+author: "TIMESOFINDIA.COM"
+content: null
+description: "Several parts of the world will today witness the first partial solar eclipse. The phenomenon is also colliding with another celestial activity called"
+publishedAt: "2022-04-30T09:47:00Z"
+source: {id: 'the-times-of-india', name: 'The Times of India'}
+title: "Solar Eclipse 2022: Tips to capture photos using smartphones - Times of India"
+url: "https://timesofindia.indiatimes.com/gadgets-news/solar-eclipse-2022-tips-to-capture-photos-using-smartphones/articleshow/91206686.cms"
+urlToImage: "https://static.toiimg.com/thumb/msid-91206651,width-1070,height-580,imgsize-13546,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+[[Prototype]]: Object
+10:
+author: "Koimoi.com Team"
+content: "KGF Chapter 2 Box Office (Worldwide) Updates!(Photo Credit: Poster From Movie)\r\nKGF Chapter 2 Box Office: Yash starrer has turned out to be a dream at the ticket windows all across the world. It is j… [+1659 chars]"
+description: "KGF Chapter 2 Box Office (Worldwide): All set to enter the 1000 crore club, only behind Dangal, RRR and Baahubli 2. Read details now!"
+publishedAt: "2022-04-30T09:17:52Z"
+source: {id: null, name: 'Koimoi'}
+title: "KGF Chapter 2 Box Office (Worldwide): Yash’s Monster To Join Elite Club Of 1000 Crores Today, RRR’s Position In Danger! - Koimoi"
+url: "https://www.koimoi.com/box-office/kgf-chapter-2-box-office-worldwide-yashs-monster-to-join-elite-club-of-1000-crores-today-rrrs-position-in-danger/"
+urlToImage: "https://static-koimoi.akamaized.net/wp-content/new-galleries/2022/04/kgf-chapter-2-box-office-worldwide-set-to-enter-the-1000-crore-club-001.jpg"
+[[Prototype]]: Object
