@@ -3,13 +3,32 @@ import './App.css';
 import React, { Component } from 'react'
 import { Navclass } from './components/Navclass';
 import News from './components/News';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+  } from "react-router-dom"
+
 
 export default class App extends Component {
+  
   render() {
     return (
       <div>
+        <Router>
           <Navclass/>
-          <News pageSize = "5"/>
+        	
+            <Routes>
+           		<Route exact path="/" key="general" element={<News pageSize = "5" counrty = "in" category="general"/>}></Route>
+           		<Route exact path="/business" key="business" element={<News pageSize = "5" counrty = "in" category="business"/>}></Route>
+           		<Route exact path="/entertainment" key="entertainment" element={<News pageSize = "5" counrty = "in" category="entertainment"/>}></Route>
+           		<Route exact path="/health" key="health" element={<News pageSize = "5" counrty = "in" category="health"/>}></Route>
+           		<Route exact path="/science" key="science" element={<News pageSize = "5" counrty = "in" category="science"/>}></Route>
+           		<Route exact path="/general" key="general" element={<News pageSize = "5" counrty = "in" category="general"/>}></Route>
+           		<Route exact path="/sports" key="sports" element={<News pageSize = "5" counrty = "in" category="sports"/>}></Route>
+           		<Route exact path="/technology" key="technology" element={<News pageSize = "5" counrty = "in" category="technology"/>}></Route>
+         	</Routes>
+        </Router>
       </div>
     )
   }
@@ -22,7 +41,7 @@ export default class App extends Component {
 // import Alert from './components/Alert';
 // import {
 //   BrowserRouter as Router,
-//   Routes,
+//   switch,
 //   Route,
 //   // Link
 // } from "react-router-dom";

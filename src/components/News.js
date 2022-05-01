@@ -1,11 +1,26 @@
 import React, { Component } from 'react'
 import Newsitem from './Newsitem'
 import Spinner from './Spinner';
+import PropTypes from 'prop-types'
+
+
+
 
 export class News extends Component {
+  static defaultProps ={
+    counrty : "in",
+    pageSize : 8,
+    category : "general"
+  }
+   PropTypes ={
+    counrty : PropTypes.string,
+    pageSize :PropTypes.number,
+    category : PropTypes.string,
+  }
   articles = [
     {
-      "author": "NDTV Sports Desk",
+      // "author": "NDTV Sports Desk",
+      "author": null,
   "content": "IPL 2022, GT vs RCB Live Updates: Chasing a target of 171, Gujarat Titans two wickets down against Royal Challengers Bangalore in Match 43 at the Brabourne Stadium in Mumbai. Shubman Gill and Wriddhi… [+897 chars]",
   "description": "IPL 2022, GT vs RCB Live Updates: Chasing a target of 171, Gujarat Titans two wickets down against Royal Challengers Bangalore in Match 43 at the Brabourne Stadium in Mumbai.",
   "publishedAt": "2022-04-30T12:27:40Z",
@@ -69,18 +84,18 @@ export class News extends Component {
       page:1
     }
   }
-  async componentDidMount(){
-    console.log("hahah");
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apikey=7e4e45473bc74f9293ec48a150d508b1&page=1&pageSize=${this.props.pageSize}`;
-    this.setState({loading:true});
-    let data = await fetch(url);
-    let parseddata = await data.json();
-    console.log(parseddata);
-    this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
-  }
+  // async componentDidMount(){
+  //   console.log("hahah");
+  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=1&pageSize=${this.props.pageSize}`;
+  //   this.setState({loading:true});
+  //   let data = await fetch(url);
+  //   let parseddata = await data.json();
+  //   console.log(parseddata);
+  //   this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
+  // }
 
   handlePrevious = async()=>{
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
     let parseddata = await data.json();
@@ -95,7 +110,7 @@ export class News extends Component {
   }
   handleNext = async()=>{     
     if(!this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
       this.setState({loading:true});
       let data = await fetch(url);
 
@@ -112,12 +127,12 @@ export class News extends Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='text-center'>NewZee - Top Headlines</h1>
+        <h1 className='text-center' style={{margin:"30px 0"}}>NewZee - Top Headlines</h1>
         {this.state.loading && <Spinner/>}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element)=>{
              return <div className="col-md-4" key={element.url}>
-             <Newsitem title = {element.title?element.title.slice(0,45):""} desc = {element.description?element.description.slice(0,88):""} imgUrl = {element.urlToImage?element.urlToImage:"https://c.ndtvimg.com/2022-04/jtpnh0og_general-manoj-pande-general-mm-naravane-ani_625x300_30_April_22.jpg"} newsUrl = {element.url}/>
+             <Newsitem source = {element.source.name}author ={element.author} date = {element.publishedAt} title = {element.title?element.title.slice(0,45):""} desc = {element.description?element.description.slice(0,88):""} imgUrl = {element.urlToImage?element.urlToImage:"https://c.ndtvimg.com/2022-04/jtpnh0og_general-manoj-pande-general-mm-naravane-ani_625x300_30_April_22.jpg"} newsUrl = {element.url}/>
            </div>
           })}
         </div>
