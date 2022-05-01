@@ -10,7 +10,7 @@ export class Navclass extends Component {
     return (
       <div>
            <nav
-      className={`navbar navbar-expand-lg navbar-light bg-light`}
+      className={`navbar navbar-expand-lg navbar-dark bg-dark`}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
