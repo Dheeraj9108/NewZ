@@ -78,51 +78,64 @@ export class News extends Component {
   constructor(){
     super();
     this.state = {
-      articles:this.articles,
-      // articles:[],
+      // articles:this.articles,
+      articles:[],
       loading:false,
       page:1
     }
   }
-  // async componentDidMount(){
-  //   console.log("hahah");
-  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=1&pageSize=${this.props.pageSize}`;
-  //   this.setState({loading:true});
-  //   let data = await fetch(url);
-  //   let parseddata = await data.json();
-  //   console.log(parseddata);
-  //   this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
-  // }
-
-  handlePrevious = async()=>{
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+  async componentDidMount(){
+    // console.log("hahah");
+    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=1&pageSize=${this.props.pageSize}`;
+    // this.setState({loading:true});
+    // let data = await fetch(url);
+    // let parseddata = await data.json();
+    // console.log(parseddata);
+    // this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
+    this.update();
+  }
+  async update(){
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
     let parseddata = await data.json();
     console.log(parseddata);
+    this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
+    
+  }
+  handlePrevious = async()=>{
+    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+    // this.setState({loading:true});
+    // let data = await fetch(url);
+    // let parseddata = await data.json();
+    // console.log(parseddata);
         
-    this.setState({
-      page:this.state.page-1,
-      articles:parseddata.articles,
-      loading:false
-    })
+    // this.setState({
+    //   page:this.state.page-1,
+    //   articles:parseddata.articles,
+    //   loading:false
+    // })
+    this.setState({page:this.state.page - 1});
+    this.update();
     
   }
   handleNext = async()=>{     
-    if(!this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
-      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-      this.setState({loading:true});
-      let data = await fetch(url);
+    // if(!this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
+    //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+    //   this.setState({loading:true});
+    //   let data = await fetch(url);
 
-      let parseddata = await data.json();
-      console.log(parseddata);
+    //   let parseddata = await data.json();
+    //   console.log(parseddata);
           
-      this.setState({
-        page:this.state.page+1,
-        articles:parseddata.articles,
-        loading:false
-      })
-    }
+    //   this.setState({
+    //     page:this.state.page+1,
+    //     articles:parseddata.articles,
+    //     loading:false
+    //   })
+    // }
+    this.setState({page:this.state.page + 1});
+    this.update();
   }
   render() {
     return (

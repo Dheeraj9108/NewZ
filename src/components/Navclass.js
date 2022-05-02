@@ -35,7 +35,7 @@ export class Navclass extends Component {
               </Link>
             </li>
             <li className="nav-item"><Link className="nav-link" to="/business">business</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/entertainement">entertainement</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/entertainment">entertainment</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/general">general</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/health">health</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/science">science</Link></li>
