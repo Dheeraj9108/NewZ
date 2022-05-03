@@ -101,12 +101,16 @@ export class News extends Component {
   //   // this.update();
   // }
   async update(){
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    this.props.setProgress(10);
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parseddata = await data.json();
+    this.props.setProgress(70);
     console.log(parseddata);
     this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
+    this.props.setProgress(100);
     
   }
   handlePrevious = async()=>{
