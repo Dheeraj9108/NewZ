@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Newsitem from './Newsitem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 
@@ -75,25 +76,30 @@ export class News extends Component {
   "urlToImage": "https://englishtribuneimages.blob.core.windows.net/gallary-content/2022/4/2022_4$largeimg_829170412.jpg"
     }
   ]
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      // articles:this.articles,
-      articles:[],
-      loading:false,
-      page:1
+      articles:this.articles,
+      // articles:[],
+      loading:true,
+      page:1,
+      totalResults:0
     }
+    document.title = `${this.capitalize(this.props.category)} - NewZee`
   }
-  async componentDidMount(){
-    // console.log("hahah");
-    // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=1&pageSize=${this.props.pageSize}`;
-    // this.setState({loading:true});
-    // let data = await fetch(url);
-    // let parseddata = await data.json();
-    // console.log(parseddata);
-    // this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
-    this.update();
+  capitalize = (string)=>{
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
+  // async componentDidMount(){
+  //   console.log("hahah");
+  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=1&pageSize=${this.props.pageSize}`;
+  //   this.setState({loading:true});
+  //   let data = await fetch(url);
+  //   let parseddata = await data.json();
+  //   console.log(parseddata);
+  //   this.setState({articles:parseddata.articles,totalResults:parseddata.totalResults,loading:false});
+  //   // this.update();
+  // }
   async update(){
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
@@ -137,23 +143,43 @@ export class News extends Component {
     this.setState({page:this.state.page + 1});
     this.update();
   }
+  fetchMoreData = async() =>{
+    this.setState({page:this.state.page + 1})
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.counrty}&category=${this.props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    
+    let data = await fetch(url);
+    let parseddata = await data.json();
+    console.log(parseddata);
+    this.setState({articles:this.state.articles.concat(parseddata.articles),totalResults:parseddata.totalResults});
+  };
   render() {
     return (
-      <div className='container'>
-        <h1 className='text-center' style={{margin:"30px 0"}}>NewZee - Top Headlines</h1>
+       <>
+     
+        <h1 className='text-center' style={{margin:"30px 0"}}>NewZee - Top {this.capitalize(this.props.category)} Headlines</h1>
         {this.state.loading && <Spinner/>}
-        <div className="row">
-          {!this.state.loading && this.state.articles.map((element)=>{
-             return <div className="col-md-4" key={element.url}>
-             <Newsitem source = {element.source.name}author ={element.author} date = {element.publishedAt} title = {element.title?element.title.slice(0,45):""} desc = {element.description?element.description.slice(0,88):""} imgUrl = {element.urlToImage?element.urlToImage:"https://c.ndtvimg.com/2022-04/jtpnh0og_general-manoj-pande-general-mm-naravane-ani_625x300_30_April_22.jpg"} newsUrl = {element.url}/>
-           </div>
-          })}
-        </div>
-       <div className="container d-flex justify-content-between">
+      
+        <InfiniteScroll dataLength={this.state.articles.length}
+          next = {this.fetchMoreData}
+          hasMore={this.state.articles.length !== this.state.totalResults}
+          loader={<Spinner/>}>
+            <div className="container">
+                <div className="row">
+                {/*!this.state.loading &&*/ this.state.articles.map((element)=>{
+                  return <div className="col-md-4" key={element.url}>
+                  <Newsitem source = {element.source.name}author ={element.author} date = {element.publishedAt} title = {element.title?element.title.slice(0,45):""} desc = {element.description?element.description.slice(0,88):""} imgUrl = {element.urlToImage?element.urlToImage:"https://c.ndtvimg.com/2022-04/jtpnh0og_general-manoj-pande-general-mm-naravane-ani_625x300_30_April_22.jpg"} newsUrl = {element.url}/>
+                </div>
+                })}
+              </div>
+            </div>
+          </InfiniteScroll>
+
+        
+       {/* <div className="container d-flex justify-content-between">
          <button disabled={this.state.page<=1} type='button' className='btn btn-dark'onClick={this.handlePrevious}>&larr; Previous</button>
          <button disabled={this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize)} type='button' className='btn btn-dark' onClick={this.handleNext}>Next &rarr;</button>
-       </div>
-      </div>
+       </div> */}
+      </>
     )
   }
 }
