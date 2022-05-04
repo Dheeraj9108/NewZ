@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
-import { Navclass } from './components/Navclass';
+import Navclass from './components/Navclass';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar';
 import {
@@ -40,7 +40,7 @@ export default class App extends Component {
            		<Route exact path="/technology" key="technology" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="technology"/>}></Route>
          	</Routes>
         </Router>
-      </div>
+      </div>  
     )
   }
 }
