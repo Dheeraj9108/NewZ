@@ -1,25 +1,23 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Navclass from './components/Navclass';
 import News from './components/News';
-
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-  } from "react-router-dom"
+import {BrowserRouter as Router,Routes,Route,} from "react-router-dom"
 import LoadingBar from 'react-top-loading-bar';
 
-export default class App extends Component {
-  pageSize = 15;
-  state = {
-    progress : 0
-  }
-  setProgress=(progress)=>{
-    this.setState({progress: progress})
-  }
-    render() {
+// export default class App extends Component {
+  const App = ()=>{
+  const pageSize = 15;
+  // state = {
+  //   progress : 0
+  // }
+  const [progress,setProgress] = useState(0);
+
+  // setProgress=(progress)=>{
+  //   setState({progress: progress})
+  // }
+    // render() {
     return (
       <div>
         <Router>
@@ -27,22 +25,22 @@ export default class App extends Component {
         	<LoadingBar 
             height={3}
             color='#f11946'
-            progress={this.state.progress}
+            progress={progress}
            />
             <Routes>
-           		<Route exact path="/" key="general" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="general"/>}></Route>
-           		<Route exact path="/business" key="business" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="business"/>}></Route>
-           		<Route exact path="/entertainment" key="entertainment" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="entertainment"/>}></Route>
-           		<Route exact path="/health" key="health" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="health"/>}></Route>
-           		<Route exact path="/science" key="science" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="science"/>}></Route>
-           		<Route exact path="/general" key="general" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="general"/>}></Route>
-           		<Route exact path="/sports" key="sports" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="sports"/>}></Route>
-           		<Route exact path="/technology" key="technology" element={<News setProgress = {this.setProgress}  pageSize = {this.pageSize} counrty = "in" category="technology"/>}></Route>
+           		<Route exact path="/"  element={<News key="general" setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="general"/>}></Route>
+           		<Route exact path="/business" element={<News key="business"  setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="business"/>}></Route>
+           		<Route exact path="/entertainment"  element={<News key="entertainment" setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="entertainment"/>}></Route>
+           		<Route exact path="/health"  element={<News key="health" setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="health"/>}></Route>
+           		<Route exact path="/science" element={<News key="science"  setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="science"/>}></Route>
+           		<Route exact path="/general" element={<News key="general" setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="general"/>}></Route>
+           		<Route exact path="/sports" element={<News key="sports" setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="sports"/>}></Route>
+           		<Route exact path="/technology"  element={<News key="technology" setProgress = {setProgress}  pageSize = {pageSize} counrty = "in" category="technology"/>}></Route>
          	</Routes>
         </Router>
       </div>  
     )
-  }
+  // }
 }
 
 // import Navbar from './components/Navbar';
@@ -118,4 +116,4 @@ export default class App extends Component {
 //   );
 // }
 
-// export default App;
+export default App;

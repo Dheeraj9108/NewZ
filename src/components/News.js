@@ -153,9 +153,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
   }
   const fetchMoreData = async() =>{
     // this.setState({page:this.state.page + 1})
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.counrty}&category=${props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${page+1}&pageSize=${props.pageSize}`;
     setPage(page+1);
-    let url = `https://newsapi.org/v2/top-headlines?country=${props.counrty}&category=${props.category}&apikey=7e4e45473bc74f9293ec48a150d508b1&page=${page}&pageSize=${props.pageSize}`;
-    
     let data = await fetch(url);
     let parseddata = await data.json();
     console.log(parseddata);
